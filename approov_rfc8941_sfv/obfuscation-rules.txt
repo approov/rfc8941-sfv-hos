@@ -20,4 +20,27 @@
 -enable-property-obfuscation
 -enable-toplevel-obfuscation
 -enable-filename-obfuscation
--enable-export-obfuscation
+
+# Exported symbol names must stay readable, or consumers can no longer
+# `import { Parser, Dictionary, ... } from '@approov/rfc8941_sfv'`.
+# -enable-export-obfuscation
+
+# Public method/property names called across the module boundary — renaming
+# these would break every consumer even though export names are kept, since
+# property obfuscation operates independently of export obfuscation.
+-keep-property-name
+get
+set
+add
+serialize
+getParams
+isEmpty
+containsKey
+entrySet
+keySet
+values
+size
+equals
+parseList
+parseDictionary
+parseItem

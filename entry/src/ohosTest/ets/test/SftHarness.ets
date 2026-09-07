@@ -15,7 +15,7 @@ export interface SftTestCase {
 type ParseResult = ItemType | SfvList | Dictionary;
 
 function parseByType(raw: string[], headerType: string): ParseResult {
-  const parser = new Parser(raw);
+  const parser:Parser = new Parser(raw);
   if (headerType === 'item') {
     return parser.parseItem();
   }

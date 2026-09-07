@@ -25,7 +25,7 @@ import { parseDictionary, parseList, parseItem } from '@approov/rfc8941_sfv';
 
 // 解析 Dictionary，例如 HTTP 头 `Example-Dict: a=1, b=2;x=?0, c`
 const dict = parseDictionary('a=1, b=2;x=?0, c');
-console.log(dict.get('a')?.get()); // 1
+console.log(dict.get().get('a')?.get()); // 1
 
 // 解析 List，例如 HTTP 头 `Example-List: "foo", "bar", "It was the best of times."`
 const list = parseList('"foo", "bar", "It was the best of times."');
@@ -48,26 +48,21 @@ const dict = parser.parseDictionary();
 每个可序列化的类型（`SfvList`、`Dictionary`、各 `*Item`）都提供 `serialize()` 方法，返回可直接写入 HTTP 头字段值的字符串：
 
 ```typescript
-import { Dictionary, IntegerItem, SfvParameters } from '@approov/rfc8941_sfv';
+import { Dictionary, IntegerItem } from '@approov/rfc8941_sfv';
 
-const dict = new Dictionary();
-dict.set('a', new IntegerItem(1, new SfvParameters()));
+const dict = Dictionary.valueOf(new Map([
+  ['a', IntegerItem.valueOf(1)],
+]));
 console.log(dict.serialize()); // "a=1"
 ```
 
 ### 构建 Item / Parameters
 
 ```typescript
-import {
-  BooleanItem, IntegerItem, DecimalItem, DateItem,
-  StringItem, TokenItem, ByteSequenceItem, DisplayStringItem,
-  InnerList, SfvParameters,
-} from '@approov/rfc8941_sfv';
+import { IntegerItem, TokenItem, SfvParameters } from '@approov/rfc8941_sfv';
 
-const params = new SfvParameters();
-params.set('foo', new TokenItem('bar', new SfvParameters()));
-
-const item = new IntegerItem(5, params);
+const params = SfvParameters.EMPTY.add('foo', TokenItem.valueOf('bar'));
+const item = IntegerItem.valueOf(5).withParams(params);
 console.log(item.serialize()); // "5;foo=bar"
 ```
 

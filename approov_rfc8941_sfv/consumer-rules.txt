@@ -1,0 +1,21 @@
+# Rules merged into a consuming app's own obfuscation config when it enables
+# obfuscation and depends on @approov/rfc8941_sfv. Keep this in sync with
+# obfuscation-rules.txt's whitelist — it protects call sites in the app from
+# renaming the public API this library exposes.
+
+-keep-property-name
+get
+set
+add
+serialize
+getParams
+isEmpty
+containsKey
+entrySet
+keySet
+values
+size
+equals
+parseList
+parseDictionary
+parseItem
