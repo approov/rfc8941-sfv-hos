@@ -1,6 +1,6 @@
 # @approov/rfc8941_sfv
 
-English | [中文](README.zh.md)
+English | [中文](readme-cn)
 
 A dependency-free ArkTS implementation of [RFC 9651 Structured Field Values for HTTP](https://www.rfc-editor.org/rfc/rfc9651) (which revises RFC 8941), verified against the [httpwg/structured-field-tests](https://github.com/httpwg/structured-field-tests) suite.
 

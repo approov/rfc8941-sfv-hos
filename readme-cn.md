@@ -1,6 +1,6 @@
 # @approov/rfc8941_sfv
 
-[English](README.md) | 中文
+[English](readme) | 中文
 
 一个无第三方依赖的 ArkTS 实现，基于 [RFC 9651 Structured Field Values for HTTP](https://www.rfc-editor.org/rfc/rfc9651)（RFC 8941 的修订版），并使用 [httpwg/structured-field-tests](https://github.com/httpwg/structured-field-tests) 测试套件进行了验证。
 
