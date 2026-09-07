@@ -1,0 +1,3 @@
+// Auto-generated from https://github.com/httpwg/structured-field-tests
+// (c) IETF Trust and contributors; BSD-3-Clause-style license (see upstream LICENSE.md)
+export const ITEM_JSON: string = "[{\"name\":\"empty item\",\"raw\":[\"\"],\"header_type\":\"item\",\"must_fail\":true},{\"name\":\"leading space\",\"raw\":[\" \\t 1\"],\"header_type\":\"item\",\"must_fail\":true},{\"name\":\"trailing space\",\"raw\":[\"1 \\t \"],\"header_type\":\"item\",\"must_fail\":true},{\"name\":\"leading and trailing space\",\"raw\":[\"  1  \"],\"header_type\":\"item\",\"expected\":[1,[]],\"canonical\":[\"1\"]},{\"name\":\"leading and trailing whitespace\",\"raw\":[\"     1  \"],\"header_type\":\"item\",\"expected\":[1,[]],\"canonical\":[\"1\"]}]";

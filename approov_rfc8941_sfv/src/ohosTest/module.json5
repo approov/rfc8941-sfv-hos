@@ -1,0 +1,14 @@
+{
+  "module": {
+    "name": "approov_rfc8941_sfv_test",
+    "type": "feature",
+    "deviceTypes": [
+      "default",
+      "tablet",
+      "car",
+      "wearable"
+    ],
+    "deliveryWithInstall": true,
+    "installationFree": false
+  }
+}

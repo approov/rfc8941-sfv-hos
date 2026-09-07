@@ -1,0 +1,12 @@
+{
+  "module": {
+    "name": "approov_rfc8941_sfv",
+    "type": "har",
+    "deviceTypes": [
+      "default",
+      "tablet",
+      "car",
+      "wearable"
+    ]
+  }
+}
