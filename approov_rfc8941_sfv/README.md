@@ -2,6 +2,8 @@
 
 English | [中文](readme-cn)
 
+Repository: [https://github.com/approov/rfc8941-sfv-hos](https://github.com/approov/rfc8941-sfv-hos)
+
 A dependency-free ArkTS implementation of [RFC 9651 Structured Field Values for HTTP](https://www.rfc-editor.org/rfc/rfc9651) (which revises RFC 8941), verified against the [httpwg/structured-field-tests](https://github.com/httpwg/structured-field-tests) suite.
 
 Structured Field Values (SFV) is a set of common data structures (Item, List, Dictionary, etc.) defined by the IETF for HTTP header/trailer fields, commonly used when parsing and serializing headers such as `Signature` and `Signature-Input` (HTTP Message Signatures). This library provides a complete parser and serializer for the specification.

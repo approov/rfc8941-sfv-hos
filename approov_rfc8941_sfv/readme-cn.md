@@ -2,6 +2,8 @@
 
 [English](README) | 中文
 
+仓库地址：[https://github.com/approov/rfc8941-sfv-hos](https://github.com/approov/rfc8941-sfv-hos)
+
 一个无第三方依赖的 ArkTS 实现，基于 [RFC 9651 Structured Field Values for HTTP](https://www.rfc-editor.org/rfc/rfc9651)（RFC 8941 的修订版），并使用 [httpwg/structured-field-tests](https://github.com/httpwg/structured-field-tests) 测试套件进行了验证。
 
 Structured Field Values（结构化字段值，简称 SFV）是 IETF 为 HTTP 头部/尾部字段定义的一套通用数据结构（Item、List、Dictionary 等），常用于 Signature、Signature-Input（HTTP Message Signatures）等场景的头部解析与序列化。本库提供了对该规范的完整解析（Parse）与序列化（Serialize）实现。
