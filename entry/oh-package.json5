@@ -6,7 +6,7 @@
   "author": "",
   "license": "",
   "dependencies": {
-//    "@approov/rfc8941_sfv": "file:./libs/approov_rfc8941_sfv.har"
+    "@approov/rfc9651-sfv": "file:./libs/approov_rfc9651_sfv.har"
   }
 }
 

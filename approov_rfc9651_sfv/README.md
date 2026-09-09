@@ -1,4 +1,4 @@
-# @approov/rfc8941_sfv
+# @approov/rfc9651-sfv
 
 English | [中文](readme-cn)
 
@@ -11,7 +11,7 @@ Structured Field Values (SFV) is a set of common data structures (Item, List, Di
 ## Installation
 
 ```
-ohpm install @approov/rfc8941_sfv
+ohpm install @approov/rfc9651-sfv
 ```
 
 For more on setting up the OpenHarmony ohpm environment, see [How to install an OpenHarmony ohpm package](https://gitee.com/openharmony-tpc/docs/blob/master/OpenHarmony_har_usage.md).
@@ -21,7 +21,7 @@ For more on setting up the OpenHarmony ohpm environment, see [How to install an 
 ### Parsing
 
 ```typescript
-import { parseDictionary, parseList, parseItem } from '@approov/rfc8941_sfv';
+import { parseDictionary, parseList, parseItem } from '@approov/rfc9651-sfv';
 
 // Parse a Dictionary, e.g. the HTTP header `Example-Dict: a=1, b=2;x=?0, c`
 const dict = parseDictionary('a=1, b=2;x=?0, c');
@@ -37,7 +37,7 @@ const item = parseItem('5; foo=bar');
 You can also use the `Parser` class directly, passing an array to support multiple field lines with the same name (RFC 9651 §4.2 requires joining them with `,`):
 
 ```typescript
-import { Parser } from '@approov/rfc8941_sfv';
+import { Parser } from '@approov/rfc9651-sfv';
 
 const parser = new Parser(['sig1=:MTIzNDU2Nzg5,', ':MjM0NTY3ODk=:']);
 const dict = parser.parseDictionary();
@@ -48,7 +48,7 @@ const dict = parser.parseDictionary();
 Every serializable type (`SfvList`, `Dictionary`, and each `*Item`) provides a `serialize()` method that returns a string ready to be written as an HTTP header field value:
 
 ```typescript
-import { Dictionary, IntegerItem } from '@approov/rfc8941_sfv';
+import { Dictionary, IntegerItem } from '@approov/rfc9651-sfv';
 
 const dict = Dictionary.valueOf(new Map([
   ['a', IntegerItem.valueOf(1)],
@@ -59,7 +59,7 @@ console.log(dict.serialize()); // "a=1"
 ### Building Items / Parameters
 
 ```typescript
-import { IntegerItem, TokenItem, SfvParameters } from '@approov/rfc8941_sfv';
+import { IntegerItem, TokenItem, SfvParameters } from '@approov/rfc9651-sfv';
 
 const params = SfvParameters.EMPTY.add('foo', TokenItem.valueOf('bar'));
 const item = IntegerItem.valueOf(5).withParams(params);
@@ -71,7 +71,7 @@ console.log(item.serialize()); // "5;foo=bar"
 Parsing failures throw a `ParseError` (or one of its subclasses, such as `ItemParseError` or `ParameterError`), which you can catch as needed:
 
 ```typescript
-import { parseItem, ParseError } from '@approov/rfc8941_sfv';
+import { parseItem, ParseError } from '@approov/rfc9651-sfv';
 
 try {
   parseItem('not a valid sfv item ??');
@@ -102,11 +102,11 @@ See [Index.ets](Index.ets) for the full list of exports.
 
 If you use this library, add the corresponding keep rules when obfuscating your app. See [Code Obfuscation](https://developer.huawei.com/consumer/en/doc/harmonyos-guides/source-obfuscation) for details.
 
-This library's own [obfuscation-rules.txt](approov_rfc8941_sfv/obfuscation-rules.txt) already enables property obfuscation, top-level obfuscation, filename obfuscation, and export obfuscation. Since the library only exposes its public API through [Index.ets](Index.ets), consuming projects generally need no extra configuration. If calling into this library after obfuscation causes issues (for example, reflective access to an obfuscated property name), add a keep rule like the following to your project's `obfuscation-rules.txt`:
+This library's own [obfuscation-rules.txt](approov_rfc9651_sfv/obfuscation-rules.txt) already enables property obfuscation, top-level obfuscation, filename obfuscation, and export obfuscation. Since the library only exposes its public API through [Index.ets](Index.ets), consuming projects generally need no extra configuration. If calling into this library after obfuscation causes issues (for example, reflective access to an obfuscated property name), add a keep rule like the following to your project's `obfuscation-rules.txt`:
 
 ```
 -keep
-./oh_modules/@approov/rfc8941_sfv
+./oh_modules/@approov/rfc9651-sfv
 ```
 
 ## Constraints and limitations
@@ -118,7 +118,7 @@ This library's own [obfuscation-rules.txt](approov_rfc8941_sfv/obfuscation-rules
 ## Directory structure
 
 ```
-approov_rfc8941_sfv
+approov_rfc9651_sfv
 ├── Index.ets                  # Public export entry point
 ├── src
 │   └── main
@@ -139,4 +139,4 @@ Issues and pull requests are welcome.
 
 ## License
 
-This project is licensed under the MIT License; see the `license` field in [approov_rfc8941_sfv/oh-package.json5](approov_rfc8941_sfv/oh-package.json5).
+This project is licensed under the MIT License; see the `license` field in [approov_rfc9651_sfv/oh-package.json5](approov_rfc9651_sfv/oh-package.json5).

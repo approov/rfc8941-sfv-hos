@@ -5,12 +5,12 @@
         "name": "default",
         "type": "HarmonyOS",
         "material": {
-          "certpath": "/Users/jie/.ohos/config/default_approov_rfc8941_sfv_hos_GjmHSZbnzjnyLwJHjNma_YhvTR5WIxQZWLxg57G-JRM=.cer",
+          "certpath": "/Users/jie/.ohos/config/default_approov_rfc9651_sfv_hos_GjmHSZbnzjnyLwJHjNma_YhvTR5WIxQZWLxg57G-JRM=.cer",
           "keyAlias": "debugKey",
           "keyPassword": "0000001B82CAA1AFFD13C188CD6FB0558A1011943CB958D34AB5EE035D97D1F9C9DFA9A82F2C31C69F3BAF",
-          "profile": "/Users/jie/.ohos/config/default_approov_rfc8941_sfv_hos_GjmHSZbnzjnyLwJHjNma_YhvTR5WIxQZWLxg57G-JRM=.p7b",
+          "profile": "/Users/jie/.ohos/config/default_approov_rfc9651_sfv_hos_GjmHSZbnzjnyLwJHjNma_YhvTR5WIxQZWLxg57G-JRM=.p7b",
           "signAlg": "SHA256withECDSA",
-          "storeFile": "/Users/jie/.ohos/config/default_approov_rfc8941_sfv_hos_GjmHSZbnzjnyLwJHjNma_YhvTR5WIxQZWLxg57G-JRM=.p12",
+          "storeFile": "/Users/jie/.ohos/config/default_approov_rfc9651_sfv_hos_GjmHSZbnzjnyLwJHjNma_YhvTR5WIxQZWLxg57G-JRM=.p12",
           "storePassword": "0000001B95C97362862E08FC74DCA69D786BEC89E013833A52CAF87D99146301B8BA6F4CC51C747A624FED"
         }
       }
@@ -53,8 +53,8 @@
       ]
     },
     {
-      "name": "approov_rfc8941_sfv",
-      "srcPath": "./approov_rfc8941_sfv",
+      "name": "approov_rfc9651_sfv",
+      "srcPath": "./approov_rfc9651_sfv",
     }
   ]
 }

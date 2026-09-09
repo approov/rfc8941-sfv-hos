@@ -1,4 +1,4 @@
-# @approov/rfc8941_sfv
+# @approov/rfc9651-sfv
 
 [English](readme) | 中文
 
@@ -9,7 +9,7 @@ Structured Field Values（结构化字段值，简称 SFV）是 IETF 为 HTTP �
 ## 下载安装
 
 ```
-ohpm install @approov/rfc8941_sfv
+ohpm install @approov/rfc9651-sfv
 ```
 
 OpenHarmony ohpm 环境变量配置等更多内容，请参考 [如何安装 OpenHarmony ohpm 包](https://gitee.com/openharmony-tpc/docs/blob/master/OpenHarmony_har_usage.md)。
@@ -19,7 +19,7 @@ OpenHarmony ohpm 环境变量配置等更多内容，请参考 [如何安装 Ope
 ### 解析（Parse）
 
 ```typescript
-import { parseDictionary, parseList, parseItem } from '@approov/rfc8941_sfv';
+import { parseDictionary, parseList, parseItem } from '@approov/rfc9651-sfv';
 
 // 解析 Dictionary，例如 HTTP 头 `Example-Dict: a=1, b=2;x=?0, c`
 const dict = parseDictionary('a=1, b=2;x=?0, c');
@@ -35,7 +35,7 @@ const item = parseItem('5; foo=bar');
 也可以直接使用 `Parser` 类，并传入一个数组以支持多行同名字段（RFC 9651 §4.2 要求以 `,` 拼接）：
 
 ```typescript
-import { Parser } from '@approov/rfc8941_sfv';
+import { Parser } from '@approov/rfc9651-sfv';
 
 const parser = new Parser(['sig1=:MTIzNDU2Nzg5,', ':MjM0NTY3ODk=:']);
 const dict = parser.parseDictionary();
@@ -46,7 +46,7 @@ const dict = parser.parseDictionary();
 每个可序列化的类型（`SfvList`、`Dictionary`、各 `*Item`）都提供 `serialize()` 方法，返回可直接写入 HTTP 头字段值的字符串：
 
 ```typescript
-import { Dictionary, IntegerItem } from '@approov/rfc8941_sfv';
+import { Dictionary, IntegerItem } from '@approov/rfc9651-sfv';
 
 const dict = Dictionary.valueOf(new Map([
   ['a', IntegerItem.valueOf(1)],
@@ -57,7 +57,7 @@ console.log(dict.serialize()); // "a=1"
 ### 构建 Item / Parameters
 
 ```typescript
-import { IntegerItem, TokenItem, SfvParameters } from '@approov/rfc8941_sfv';
+import { IntegerItem, TokenItem, SfvParameters } from '@approov/rfc9651-sfv';
 
 const params = SfvParameters.EMPTY.add('foo', TokenItem.valueOf('bar'));
 const item = IntegerItem.valueOf(5).withParams(params);
@@ -69,7 +69,7 @@ console.log(item.serialize()); // "5;foo=bar"
 解析失败时会抛出 `ParseError`（及其子类 `ItemParseError`、`ParameterError` 等），可按需捕获：
 
 ```typescript
-import { parseItem, ParseError } from '@approov/rfc8941_sfv';
+import { parseItem, ParseError } from '@approov/rfc9651-sfv';
 
 try {
   parseItem('not a valid sfv item ??');
@@ -100,11 +100,11 @@ try {
 
 如果使用了本库，在混淆的时候需要添加相应的保留规则，混淆配置请参考[混淆规则说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation)。
 
-本库已在自身的 [obfuscation-rules.txt](approov_rfc8941_sfv/obfuscation-rules.txt) 中开启了属性混淆、顶层作用域混淆、文件名混淆及导出混淆；由于本库对外仅通过 [Index.ets](Index.ets) 暴露公共 API，消费方工程一般无需额外配置即可正常使用。若在混淆后调用本库接口出现异常（例如反射访问了被混淆的属性名），可在工程的 `obfuscation-rules.txt` 中添加类似如下的保留规则：
+本库已在自身的 [obfuscation-rules.txt](approov_rfc9651_sfv/obfuscation-rules.txt) 中开启了属性混淆、顶层作用域混淆、文件名混淆及导出混淆；由于本库对外仅通过 [Index.ets](Index.ets) 暴露公共 API，消费方工程一般无需额外配置即可正常使用。若在混淆后调用本库接口出现异常（例如反射访问了被混淆的属性名），可在工程的 `obfuscation-rules.txt` 中添加类似如下的保留规则：
 
 ```
 -keep
-./oh_modules/@approov/rfc8941_sfv
+./oh_modules/@approov/rfc9651-sfv
 ```
 
 ## 约束与限制
@@ -116,7 +116,7 @@ try {
 ## 目录结构
 
 ```
-approov_rfc8941_sfv
+approov_rfc9651_sfv
 ├── Index.ets                  # 对外导出入口
 ├── src
 │   └── main
@@ -137,4 +137,4 @@ approov_rfc8941_sfv
 
 ## 开源协议
 
-本项目基于 MIT License 开源，详见 [approov_rfc8941_sfv/oh-package.json5](approov_rfc8941_sfv/oh-package.json5) 中的 `license` 字段。
+本项目基于 MIT License 开源，详见 [approov_rfc9651_sfv/oh-package.json5](approov_rfc9651_sfv/oh-package.json5) 中的 `license` 字段。

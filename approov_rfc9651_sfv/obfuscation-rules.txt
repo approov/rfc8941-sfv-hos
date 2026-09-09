@@ -22,7 +22,7 @@
 -enable-filename-obfuscation
 
 # Exported symbol names must stay readable, or consumers can no longer
-# `import { Parser, Dictionary, ... } from '@approov/rfc8941_sfv'`.
+# `import { Parser, Dictionary, ... } from '@approov/rfc9651-sfv'`.
 # -enable-export-obfuscation
 
 # Public method/property names called across the module boundary — renaming

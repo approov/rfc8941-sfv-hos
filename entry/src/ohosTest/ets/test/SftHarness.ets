@@ -1,5 +1,5 @@
 import { expect } from '@ohos/hypium';
- import {ItemType,SfvList,Dictionary,Parser} from '@approov/rfc8941_sfv'
+ import {ItemType,SfvList,Dictionary,Parser} from '@approov/rfc9651-sfv'
 /**
  * Test-record shape from https://github.com/httpwg/structured-field-tests
  * (see that repo's README.md for the full format description).

@@ -1,6 +1,6 @@
 {
   "module": {
-    "name": "approov_rfc8941_sfv",
+    "name": "approov_rfc9651_sfv",
     "type": "har",
     "deviceTypes": [
       "default",

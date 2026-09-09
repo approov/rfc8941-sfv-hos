@@ -1,6 +1,6 @@
 {
   "module": {
-    "name": "approov_rfc8941_sfv_test",
+    "name": "approov_rfc9651_sfv_test",
     "type": "feature",
     "deviceTypes": [
       "default",
