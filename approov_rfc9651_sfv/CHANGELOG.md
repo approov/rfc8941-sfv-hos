@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file.
 
-## [1.0.0]
+## [1.0.0] - 2026 - 09 -10
 
-- Initial release: a dependency-free ArkTS implementation of RFC 9651 Structured Field Values for HTTP (revises RFC 8941), verified against the httpwg/structured-field-tests suite.
+- Initial changelog creation.
+- Implementation of RFC 9651 Structured Field Values for HTTP (revises RFC 8941)
+
