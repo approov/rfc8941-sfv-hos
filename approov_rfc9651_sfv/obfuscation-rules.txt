@@ -21,6 +21,12 @@
 -enable-toplevel-obfuscation
 -enable-filename-obfuscation
 
+# Index.d.ets re-exports from './src/main/ets', which resolves to
+# src/main/ets/index.ets. Renaming that file breaks the published declarations
+# (every exported type degrades to `any` for consumers), so keep its name.
+-keep-file-name
+index
+
 # Exported symbol names must stay readable, or consumers can no longer
 # `import { Parser, Dictionary, ... } from '@approov/rfc9651-sfv'`.
 # -enable-export-obfuscation
